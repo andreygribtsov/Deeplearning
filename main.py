@@ -31,7 +31,7 @@ print("Y.shape = {}".format(Y.shape))
 
 # MODEL WITH NEURAL NETWORK WITH ONE HIDDEN LAYER
 
-# initialize weigth and biases for NN model 1
+# initialize weigth and biases for NN model 12
 
 W1 = np.random.randn(X.shape[0], n_hidden_neurons_qty)
 b1 = np.random.randn(1, n_hidden_neurons_qty)

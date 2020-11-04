@@ -31,7 +31,7 @@ print("Y.shape = {}".format(Y.shape))
 
 # MODEL WITH NEURAL NETWORK WITH ONE HIDDEN LAYER
 
-# initialize weigth and biases for NN model
+# initialize weigth and biases for NN model 1
 
 W1 = np.random.randn(X.shape[0], n_hidden_neurons_qty)
 b1 = np.random.randn(1, n_hidden_neurons_qty)
@@ -65,6 +65,7 @@ iteration_qty = 10000
 
 # print("W2 = {}\n".format(W2.shape))
 # print("Y2 - Y = {}\n".format((Y2 - Y).shape))
+costs = []
 
 for i in range(0, iteration_qty):
 
@@ -84,8 +85,14 @@ for i in range(0, iteration_qty):
     Z2 = W2.T @ A1 + b2.T
     Y2 = sigmoid(Z2)
     cost = (-1) * np.sum((Y * np.log(Y2) + (1 - Y) * np.log(1 - Y2)))
-    # if i % 100 == 0:
-    #     print(cost)
+    if i % 100 == 0:
+        costs.append(i, cost)
+
+# plot the cost
+plt.plot(costs)
+plt.ylabel('cost')
+plt.xlabel('iterations (x1,000)')
+plt.show()
 
 print("learning results \n")
 print("W1 = {} \n".format(W1))
